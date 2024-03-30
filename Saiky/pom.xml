@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.mycompany</groupId>
+    <artifactId>Saiky</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <exec.mainClass>com.mycompany.saiky.Saiky</exec.mainClass>
+	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    	<geotools.version>31-SNAPSHOT</geotools.version>
+    	<maven.deploy.skip>true</maven.deploy.skip>
+        <jts.version>1.16.1</jts.version>
+    </properties>
+
+    <dependencies>
+ <dependency>
+    <groupId>org.opengis</groupId>
+    <artifactId>geoapi</artifactId>
+    <version>3.0.2</version>
+  </dependency>
+        <dependency>
+            <groupId>org.locationtech.jts</groupId>
+            <artifactId>jts-core</artifactId>
+            <version>${jts.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.1</version>
+            <scope>test</scope>
+        </dependency>
+  	<dependency>
+        	<groupId>org.geotools</groupId>
+        	<artifactId>gt-main</artifactId>
+        	<version>${geotools.version}</version>
+    	</dependency>
+        <dependency>
+           	 <groupId>org.geotools</groupId>
+           	 <artifactId>gt-shapefile</artifactId>
+          	 <version>${geotools.version}</version>
+        </dependency>
+        <dependency>
+            	<groupId>org.geotools</groupId>
+            	<artifactId>gt-swing</artifactId>
+            	<version>${geotools.version}</version>
+        </dependency>
+        <dependency>
+           	 <groupId>com.google.auth</groupId>
+           	 <artifactId>google-auth-library-oauth2-http</artifactId>
+           	 <version>0.25.0</version>
+        </dependency>
+
+<dependency>
+     <groupId>com.google.api-client</groupId>
+     <artifactId>google-api-client</artifactId>
+     <version>1.32.1</version>
+        <exclusions>
+            <exclusion>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava-jdk5</artifactId>
+            </exclusion>
+        </exclusions>
+    </dependency>
+        <dependency>
+            	<groupId>com.google.http-client</groupId>
+            	<artifactId>google-http-client</artifactId>
+            	<version>1.38.0</version>
+        </dependency>
+ <dependency>
+    <groupId>com.google.api-client</groupId>
+    <artifactId>google-api-client-jackson2</artifactId>
+    <version>2.2.0</version>
+</dependency>
+   	<dependency>
+      		<groupId>com.google.apis</groupId>
+      		<artifactId>google-api-services-storage</artifactId>
+      		<version>v1-rev82-1.22.0</version>
+    	</dependency>
+	<dependency>
+  		  <groupId>com.google.guava</groupId>
+  		  <artifactId>guava</artifactId>
+  		  <version>32.1.2-jre</version> <!-- Reemplaza esto con la versión más reciente compatible -->
+	</dependency>
+  </dependencies>
+   
+ <repositories>
+
+    	  <repository>
+        	<id>osgeo</id>
+        	<name>OSGeo Release Repository</name>
+        	<url>https://repo.osgeo.org/repository/release/</url>
+        	<snapshots><enabled>false</enabled></snapshots>
+        	<releases><enabled>true</enabled></releases>
+     	 </repository>
+    <repository>
+        <id>google</id>
+        <name>Google Repository</name>
+        <url>https://maven.google.com</url>
+    </repository>
+	 <repository>
+        	<id>osgeo-snapshot</id>
+        	<name>OSGeo Snapshot Repository</name>
+        	<url>https://repo.osgeo.org/repository/snapshot/</url>
+        	<snapshots><enabled>true</enabled></snapshots>
+        	<releases><enabled>false</enabled></releases>
+         </repository>
+         <repository>
+   		<id>locationtech-releases</id>
+   	        <url>https://repo.eclipse.org/content/groups/releases</url>
+  		<snapshots>
+   	   		<enabled>false</enabled>
+   	 	</snapshots>
+  	 </repository>
+  	 <repository>
+    		<id>jts-snapshots</id>
+    		<url>https://repo.eclipse.org/content/repositories/jts-snapshots</url>
+    		<releases>
+    		 	<enabled>false</enabled>
+   		 </releases>
+   		 <snapshots>
+     		 	<enabled>true</enabled>
+    		</snapshots>
+   	 </repository>
+
+
+
+    <repository>
+        <id>google-api-services</id>
+        <url>https://maven-central.storage.googleapis.com</url>
+    </repository>
+    </repositories>
+   
+    <build>
+    	<plugins>
+<plugin>
+   <groupId>com.google.cloud.tools</groupId>
+   <artifactId>appengine-maven-plugin</artifactId>
+   <version>2.4.4</version>
+</plugin>
+
+
+      		<plugin>
+        		<inherited>true</inherited>
+        		<groupId>org.apache.maven.plugins</groupId>
+        		<artifactId>maven-compiler-plugin</artifactId>
+        		<version>3.10.1</version>
+        		<configuration>
+          			<source>1.8</source>
+          			<target>1.8</target>
+        		</configuration>
+      		</plugin>
+    	</plugins>
+    </build>		
+</project>
